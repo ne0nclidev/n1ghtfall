@@ -1,4 +1,5 @@
 reset
+autoload -Uz compinit && compinit
 setopt correct_all
 print -P "%F{057}n1ghtfall (v2.5.3)"
 print -P "%F{053}     ___       _   _   ___     _ _ %f"
