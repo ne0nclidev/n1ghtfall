@@ -13,7 +13,7 @@ A really cool dark terminal theme for Zsh
 
 First, open your terminal and type:
 ```zsh
-git clone https://github.com/ne0nclidev/n1ghtfall n1ghtfall
+git clone https://github.com/reorientate/n1ghtfall n1ghtfall
 ```
 then go into the folder:
 ```zsh
