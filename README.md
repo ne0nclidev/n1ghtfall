@@ -11,6 +11,21 @@ A really cool dark terminal theme for Zsh
 
 ## Installation
 
+### First Option (Quickest Way)
+Open your terminal and run this command:
+```zsh
+curl -fsSL 'raw.githubusercontent.com/reorientate/n1ghtfall/refs/heads/main/install.sh' | bash
+```
+
+This runs the installer script
+
+To uninstall:
+```zsh
+curl -fsSL 'raw.githubusercontent.com/reorientate/n1ghtfall/refs/heads/main/uninstall.sh' | bash
+```
+
+### Second Option
+
 First, open your terminal and type:
 ```zsh
 git clone https://github.com/reorientate/n1ghtfall n1ghtfall
@@ -22,7 +37,7 @@ cd n1ghtfall
 ###### (if that doesnt work, try ```cd ~/n1ghtfall```)
 then run this:
 ```zsh
-mkdir -p ~/zshbackup && cp ~/.zshrc ~/zshbackup/.zshrc.bak && cp -i nightfall ~/.zshrc
+mkdir -p ~/zshbackup && cp ~/.zshrc ~/zshbackup/.zshrc.bak && cp -i .zshrc ~/.zshrc
 ```
 Explanation: Creates a backup --> Copies (or duplicates) the original ```.zshrc``` config **on home** to the backup dir (zshbackup) --> Replaces the .zshrc config with n1ghtfall (with confirmation)
 
