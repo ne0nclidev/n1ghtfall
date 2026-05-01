@@ -30,11 +30,23 @@ if ! command -v zsh &> /dev/null; then
     exit 1
 fi
 
-# Determine the target directory
+# Determine the target directory and backup directory
 ZSHRC_PATH="${HOME}/.zshrc"
+BACKUP_DIR="${HOME}/.n1ghtfall-backups"
+BACKUP_FILE="${BACKUP_DIR}/.zshrc.backup"
 
-# Check if .zshrc exists
-if [ ! -f "$ZSHRC_PATH" ]; then
+# Create backup directory if it doesn't exist
+if [ ! -d "$BACKUP_DIR" ]; then
+    echo -e "${YELLOW}Creating backup directory...${NC}"
+    mkdir -p "$BACKUP_DIR"
+fi
+
+# Backup existing .zshrc if it exists and hasn't been backed up already
+if [ -f "$ZSHRC_PATH" ] && [ ! -f "$BACKUP_FILE" ]; then
+    echo -e "${YELLOW}Backing up your existing .zshrc...${NC}"
+    cp "$ZSHRC_PATH" "$BACKUP_FILE"
+    echo -e "${GREEN}✓ Backup saved to $BACKUP_FILE${NC}"
+elif [ ! -f "$ZSHRC_PATH" ]; then
     echo -e "${YELLOW}Creating new .zshrc file...${NC}"
     touch "$ZSHRC_PATH"
 fi
