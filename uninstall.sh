@@ -35,7 +35,8 @@ fi
 # Paths
 ZSHRC_PATH="${HOME}/.zshrc"
 INSTALL_DIR="${HOME}/.n1ghtfall"
-BACKUP_PATH="${HOME}/.zshrc.backup-n1ghtfall"
+BACKUP_DIR="${HOME}/.n1ghtfall-backups"
+BACKUP_FILE="${BACKUP_DIR}/.zshrc.backup"
 
 # Remove the installation directory
 if [ -d "$INSTALL_DIR" ]; then
@@ -44,26 +45,29 @@ if [ -d "$INSTALL_DIR" ]; then
     echo -e "${GREEN}✓ Removed $INSTALL_DIR${NC}"
 fi
 
-# Backup and remove .zshrc if it was installed by n1ghtfall
-if [ -f "$ZSHRC_PATH" ]; then
-    echo -e "${YELLOW}Backing up current .zshrc...${NC}"
-    cp "$ZSHRC_PATH" "$BACKUP_PATH"
-    echo -e "${GREEN}✓ Backup saved to $BACKUP_PATH${NC}"
-    
-    # Remove .zshrc (user can restore from backup if needed)
-    rm "$ZSHRC_PATH"
-    echo -e "${GREEN}✓ Removed $ZSHRC_PATH${NC}"
+# Restore .zshrc from backup if it exists
+if [ -f "$BACKUP_FILE" ]; then
+    echo -e "${YELLOW}Restoring your original .zshrc...${NC}"
+    cp "$BACKUP_FILE" "$ZSHRC_PATH"
+    echo -e "${GREEN}✓ Restored $ZSHRC_PATH${NC}"
+else
+    # If no backup exists, just remove .zshrc
+    if [ -f "$ZSHRC_PATH" ]; then
+        rm "$ZSHRC_PATH"
+        echo -e "${YELLOW}No backup found. Removed $ZSHRC_PATH${NC}"
+    fi
 fi
 
 echo ""
 echo -e "${GREEN}✓ n1ghtfall has been uninstalled!${NC}"
 echo ""
-echo -e "${BLUE}Your previous .zshrc has been backed up to:${NC}"
-echo -e "${YELLOW}  $BACKUP_PATH${NC}"
-echo ""
-echo -e "${BLUE}You can restore it with:${NC}"
-echo -e "${YELLOW}  cp $BACKUP_PATH $ZSHRC_PATH${NC}"
-echo ""
+
+if [ -f "$BACKUP_FILE" ]; then
+    echo -e "${BLUE}Your original .zshrc backup is preserved at:${NC}"
+    echo -e "${YELLOW}  $BACKUP_FILE${NC}"
+    echo ""
+fi
+
 echo -e "${BLUE}To apply changes, restart your terminal or run:${NC}"
 echo -e "${YELLOW}  source ~/.zshrc${NC}"
 echo ""
