@@ -19,19 +19,32 @@ colors[quaternary]=098
 colors[highlight]=161
 
 # ============================================================================
+# Configuration
+# ============================================================================
+# Update check interval (in seconds)
+# Default: 86400 (24 hours)
+# Examples:
+#   3600   = 1 hour
+#   21600  = 6 hours
+#   43200  = 12 hours
+#   86400  = 24 hours (default)
+#   604800 = 7 days
+N1GHTFALL_CHECK_INTERVAL=${N1GHTFALL_CHECK_INTERVAL:-86400}
+
+# ============================================================================
 # Update Check Function
 # ============================================================================
 check_and_update_n1ghtfall() {
   local install_dir="${HOME}/.n1ghtfall"
   local check_file="${HOME}/.n1ghtfall-update-check"
-  local check_interval=$((24 * 60 * 60))  # Check every 24 hours
+  local check_interval=$N1GHTFALL_CHECK_INTERVAL
   
   # Only check if the install directory exists
   if [ ! -d "$install_dir" ]; then
     return
   fi
   
-  # Check if we should run the update check (once per day)
+  # Check if we should run the update check (based on interval)
   local current_time=$(date +%s)
   if [ -f "$check_file" ]; then
     local last_check=$(cat "$check_file")
