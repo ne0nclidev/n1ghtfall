@@ -180,8 +180,6 @@ display_banner() {
   print -P "%F{$colors[quaternary]}|_|_|_____|_. |_|_|_| |_| |__,|_|_|%f"
   print -P "%F{$colors[highlight]}     n1ght%f%F{105}|___|%f%F{$colors[highlight]}fall.sh%f"
   print ""
-  print -P "[%F{073}==%f] %F{085}Loaded!%f"
-  print ""
 }
 
 display_banner
