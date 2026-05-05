@@ -29,7 +29,7 @@ colors[highlight]=161
 #   43200  = 12 hours
 #   86400  = 24 hours (default)
 #   604800 = 7 days
-N1GHTFALL_CHECK_INTERVAL=${N1GHTFALL_CHECK_INTERVAL:-86400}
+N1GHTFALL_CHECK_INTERVAL=${N1GHTFALL_CHECK_INTERVAL:-600}
 
 # ============================================================================
 # Update Check Function
