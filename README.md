@@ -1,13 +1,25 @@
 # n1ghtfall
 A really cool dark terminal theme for Zsh
 
-It has:
+Features:
 * 40+ useful command aliases
 * Beginner-friendly interface
+* Auto-updates every 1 hour (configurable)
+* Backups your original Zsh config
 * All in Zsh
 
-preview:
-<img width="867" height="649" alt="Screen Shot 2026-05-03 at 1 54 47 AM" src="https://github.com/user-attachments/assets/9102d4d2-ed49-42dd-ad3f-56eec35e9d37" />
+The Zsh config is a dotfile that is stored in your home directory named ```.zshrc```
+
+You can modify this config with this command:
+```zsh
+nano ~/.zshrc
+```
+(nano is a usually builtin text editor for terminal)
+
+When you download, your backup zsh will stored in ```zshbackup``` in your home directory
+
+Preview:
+<img width="759" height="544" alt="Screen Shot 2026-05-06 at 6 44 35 PM" src="https://github.com/user-attachments/assets/ee8817bc-c6dc-4d34-a753-623f1836a3a4" />
 
 ## Installation
 
