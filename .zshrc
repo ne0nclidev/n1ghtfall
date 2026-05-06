@@ -174,12 +174,14 @@ alias nf-uninstall='curl -O "https://raw.githubusercontent.com/reorientate/n1ght
 # ============================================================================
 display_banner() {
   print -P "%F{$colors[primary]}n1ghtfall (v2)%f"
+  print -P "%F{$colors[primary]}(%D{%d/%m/%Y}%@) %y%f"
   print -P "%F{$colors[secondary]}     ___       _   _   ___     _ _ %f"
   print -P "%F{$colors[accent]} ___|_  |  ___| |_| |_|  _|___| | |%f"
   print -P "%F{$colors[tertiary]}|   |_| |_| . |   |  _|  _| .'| | |%f"
   print -P "%F{$colors[quaternary]}|_|_|_____|_. |_|_|_| |_| |__,|_|_|%f"
   print -P "%F{$colors[highlight]}     n1ght%f%F{105}|___|%f%F{$colors[highlight]}fall.sh%f"
   print ""
+  print -P "[%F{073}==%f] %F{161}Loaded!%f"
 }
 
 display_banner
