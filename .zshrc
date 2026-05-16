@@ -8,6 +8,11 @@ autoload -Uz compinit && compinit -u
 setopt correct_all
 
 # ============================================================================
+# PATH(s) (you can add PATHs here under this box)
+# ============================================================================
+
+
+# ============================================================================
 # Color Definitions
 # ============================================================================
 typeset -A colors
@@ -119,13 +124,13 @@ alias mkdir='mkdir -p'
 # ============================================================================
 # File Management Aliases
 # ============================================================================
-alias ll='ls -lah'
-alias lll='ls -laAh'
+alias ll='ls -lah --color'
+alias ls='ls --color'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias rmf='rm -rf'
-alias cat='cat -v'
+# removed alias for cat since '-v' can sometimes make output harder to read
 alias df='df -h'
 alias du='du -h'
 
